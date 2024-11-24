@@ -1,4 +1,4 @@
-# Instagram Mutual Like Tool
+# Instagram Mutually Liked Reels Finder
 This Python script interacts with the Instagram blok API in a way that allows the automation of userdata recollection, such as likes. 
 
 # Blok and API Reference
