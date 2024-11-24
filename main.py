@@ -37,7 +37,7 @@ def make_request(method, url, headers, params={}, data={}):
 
     return json.loads(r_decoded)
 
-instagramWeb.login(use_cookies=True)
+instagramWeb.login()
 headers, params, data = instagramWeb.get_request_info()
 
 # liked_media's on_bind, around line 1234, contains the first few, most recent, 15 interactions. It's the only exception to the chain.
@@ -82,6 +82,7 @@ on_bind_liked_next = bloksParser.deserialize(liked_next["payload"]["layout"]["bl
 media_ids = extract_media_ids(on_bind_liked_next, media_ids)
 
 try:
+    print("Retrieving liked reels... This might take a while!")
     while True:
         print("Current amount of reels retrieved: " + str(len(media_ids)))
 
@@ -113,7 +114,7 @@ try:
 
         # Instagram rate-limits after 200 requests in an hour... Yes, you'll have to leave this running for a while.
         time.sleep(19)
-        
+
 except Exception as e:
     print(e)
     with open("all_media_ids.txt", "w") as file:
@@ -122,6 +123,8 @@ with open("all_media_ids.txt", "w") as file:
     file.write(json.dumps(media_ids))
 
 # Now, get friend likers. Then, organize into a neat list. This is much easier as the response is sent in direct JSON.
+print("")
+print("Matching reels with follower and following's likes...")
 
 liked_media = {}
 for media_id in sorted(media_ids):#media_ids):
@@ -153,3 +156,5 @@ for media_id in sorted(media_ids):#media_ids):
 
 with open("FINAL_MATCHED_REELS.txt", "w") as file:
     json.dump(liked_media, file, indent=4)
+
+print("Finished! Check folder for file.")

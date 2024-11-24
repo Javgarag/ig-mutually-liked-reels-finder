@@ -4,9 +4,11 @@ This Python script interacts with the Instagram blok API in a way that allows th
 Due to Instagram's 200 requests per hour rate limit, `sleep` statements of 19 seconds each are used to prevent request blocking.
 
 # Setup
-Create a `credentials.txt` file with your Instagram credentials (password) and add your username inside `handlers/webdriver.py`'s `login()` method.
+`config.ini` contains all the information needed to complete API requests. 
 
-Alternatively, use your browser with your logged-in account and extract Instagram's cookies, then input accordingly in `handlers/webdriver.py`'s `inject_cookies()`. 
+There are two methods to obtain the header data needed for requests; login through the frontend page using Selenium (which requires`username` and `password`) or use cookies from an already logged-in session (to find these, use your browser's Storage tab on the developer menu).
+
+Logging in as usual will take priority unless `should_use` is set to `no`.
 
 # Blok and API Reference
 ## API AppIds
