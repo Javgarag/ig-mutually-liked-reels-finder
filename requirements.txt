@@ -1,0 +1,4 @@
+igbloks==1.0.0a0
+Requests==2.32.3
+selenium==4.26.1
+selenium_wire==5.1.0
