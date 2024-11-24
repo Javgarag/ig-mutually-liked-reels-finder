@@ -6,7 +6,7 @@ Due to Instagram's 200 requests per hour rate limit, `sleep` statements of 19 se
 # Setup
 `config.ini` contains all the information needed to complete API requests. 
 
-There are two methods to obtain the header data needed for requests; login through the frontend page using Selenium (which requires`username` and `password`) or use cookies from an already logged-in session (to find these, use your browser's Storage tab on the developer menu).
+There are two methods to obtain the header data needed for requests; login through the frontend page using Selenium (which requires `username` and `password`) or use cookies from an already logged-in session (to find these, use your browser's Storage tab on the developer menu).
 
 Logging in as usual will take priority unless `should_use` is set to `no`.
 

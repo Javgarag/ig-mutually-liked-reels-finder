@@ -127,6 +127,7 @@ print("")
 print("Matching reels with follower and following's likes...")
 
 liked_media = {}
+i = 0
 for media_id in sorted(media_ids):#media_ids):
     i = i + 1
     media_code = media_ids[media_id]
